@@ -14,6 +14,8 @@
 
 @interface CVFGalileoHandler : NSObject<GCGalileoDelegate, GCPositionControlDelegate>
 
+- (void)panBy:(double) degrees;
+- (void)tiltBy:(double) degrees;
 - (void)rotateBy:(double) degrees axis:(BOOL)axis;
 
 @end

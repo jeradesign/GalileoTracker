@@ -33,16 +33,15 @@
     }
     GCPositionControl *positionControl = [[GCGalileo sharedGalileo] positionControlForAxis:
                                           axis ? GCControlAxisTilt : GCControlAxisPan];
-    [positionControl incrementTargetPosition:degrees
-                             completionBlock:
+    [positionControl setTargetPosition:positionControl.currentPosition + degrees completionBlock:
      ^(BOOL wasCommandPreempted) {
-         if (wasCommandPreempted) {
-             [self log:@"incrementTargetPosition preempted"];
-         } else {
-             [self log:@"incrementTargetPosition completed"];
-         }
-     }
-                         waitUntilStationary:FALSE];
+        if (wasCommandPreempted) {
+            [self log:@"incrementTargetPosition preempted"];
+        } else {
+            [self log:@"incrementTargetPosition completed"];
+        }
+    }
+                   waitUntilStationary:NO];
     
 }
 

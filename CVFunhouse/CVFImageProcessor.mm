@@ -28,6 +28,7 @@
 
 -(void)processImageBuffer:(CVImageBufferRef)imageBuffer withMirroring:(BOOL)shouldMirror
 {
+    (void) shouldMirror;
     // Lock the base address of the pixel buffer
     CVPixelBufferLockBaseAddress(imageBuffer, 0);
     
@@ -51,12 +52,12 @@
 //    cvFlip(flipCopy, flipCopy, 0);
     cv::Mat workingCopy;
 
-    if (shouldMirror) {
-        cv::transpose(mat, workingCopy);
-    } else {
-        cv::transpose(mat, workingCopy);
-        cv::flip(workingCopy, workingCopy, 1);
-    }
+//    if (shouldMirror) {
+//        cv::transpose(mat, workingCopy);
+//    } else {
+//        cv::transpose(mat, workingCopy);
+        cv::flip(mat, workingCopy, 1);
+//    }
     
     CVPixelBufferUnlockBaseAddress(imageBuffer, 0);
 

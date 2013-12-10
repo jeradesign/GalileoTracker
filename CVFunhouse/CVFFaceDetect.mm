@@ -9,6 +9,7 @@
 // Based on the OpenCV example: <opencv>/samples/c/facedetect.cpp
 
 #import "CVFFaceDetect.h"
+#import "CVFGalileoHandler.h"
 
 #include "opencv2/objdetect/objdetect.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
@@ -21,11 +22,21 @@ double scale = 1;
 
 @interface CVFFaceDetect() {
     bool _inited;
+    CVFGalileoHandler *_galileo;
 }
 
 @end
 
 @implementation CVFFaceDetect
+
+-(instancetype)init
+{
+    self = [super init];
+    if (self != nil) {
+        _galileo = [[CVFGalileoHandler alloc] init];
+    }
+    return self;
+}
 
 -(void)processMat:(cv::Mat)mat
 {
@@ -57,11 +68,11 @@ double scale = 1;
     
     cascade.detectMultiScale( smallImg, faces,
                              1.2, 2, 0
-                             //|CV_HAAR_FIND_BIGGEST_OBJECT
-                             //|CV_HAAR_DO_ROUGH_SEARCH
+                             |CV_HAAR_FIND_BIGGEST_OBJECT
+                             |CV_HAAR_DO_ROUGH_SEARCH
                              |CV_HAAR_SCALE_IMAGE
                              ,
-                             cv::Size(75, 75) );
+                             cv::Size(50, 50) );
     for( vector<cv::Rect>::const_iterator r = faces.begin(); r != faces.end(); r++, i++ )
     {
         Mat smallImgROI;
@@ -73,6 +84,16 @@ double scale = 1;
         center.y = cvRound((r->y + r->height*0.5)*scale);
         radius = cvRound((r->width + r->height)*0.25*scale);
         circle( mat, center, radius, color, 3, 8, 0 );
+        int matX = mat.cols / 2;
+        int matY = mat.rows / 2;
+        
+        float deltaX = -(float)(center.x - matX) / mat.cols;
+        float deltaY = -(float)(center.y - matY) / mat.rows;
+        
+        NSLog(@"%f, %f", deltaX, deltaY);
+        [_galileo panBy:deltaX * 30];
+        [_galileo tiltBy:deltaY * 30];
+        break;
     }
     
     [self matReady:mat];
