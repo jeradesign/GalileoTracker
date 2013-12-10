@@ -1,0 +1,22 @@
+//
+// Prefix header for all source files of the 'CVFunhouse' target in the 'CVFunhouse' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __cplusplus
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wall"
+#pragma clang diagnostic ignored "-Wnested-anon-types"
+#import "opencv2/opencv.hpp"
+#pragma clang diagnostic pop
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
