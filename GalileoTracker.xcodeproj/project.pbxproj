@@ -54,6 +54,10 @@
 		42B3377615BA949400CBD888 /* CVFunhouse114.png in Resources */ = {isa = PBXBuildFile; fileRef = 42B3377515BA949400CBD888 /* CVFunhouse114.png */; };
 		42B3377915BA94A000CBD888 /* CVFunhouse57.png in Resources */ = {isa = PBXBuildFile; fileRef = 42B3377815BA94A000CBD888 /* CVFunhouse57.png */; };
 		42B3377C15BB2F5200CBD888 /* CVFCannyDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 42B3377B15BB2F5200CBD888 /* CVFCannyDemo.m */; };
+		42DB067F1856BFA00044357D /* GalileoControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42DB067E1856BFA00044357D /* GalileoControl.framework */; };
+		42DB06831856C0C80044357D /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42DB06801856C0C80044357D /* CoreBluetooth.framework */; };
+		42DB06841856C0C80044357D /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42DB06811856C0C80044357D /* ExternalAccessory.framework */; };
+		42DB06851856C0C80044357D /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 42DB06821856C0C80044357D /* libxml2.dylib */; };
 		42E60DB416BB52E500F9712B /* Demos.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42E60DB316BB52E500F9712B /* Demos.plist */; };
 		CD7E937715BB5354004D709A /* CVFSephiaDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7E937615BB5354004D709A /* CVFSephiaDemo.m */; };
 /* End PBXBuildFile section */
@@ -106,7 +110,6 @@
 		42AA08571508314600B379F4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		42AA08591508314600B379F4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		42AA085B1508314600B379F4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		42AA085F1508314600B379F4 /* CVFunhouse-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CVFunhouse-Info.plist"; sourceTree = "<group>"; };
 		42AA08611508314600B379F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		42AA08631508314600B379F4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		42AA08651508314600B379F4 /* GalileoTracker-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GalileoTracker-Prefix.pch"; sourceTree = "<group>"; };
@@ -124,6 +127,11 @@
 		42B3377815BA94A000CBD888 /* CVFunhouse57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CVFunhouse57.png; sourceTree = "<group>"; };
 		42B3377A15BB2F5200CBD888 /* CVFCannyDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CVFCannyDemo.h; path = CVFunhouse/CVFCannyDemo.h; sourceTree = "<group>"; };
 		42B3377B15BB2F5200CBD888 /* CVFCannyDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CVFCannyDemo.m; path = CVFunhouse/CVFCannyDemo.m; sourceTree = "<group>"; };
+		42DB067C1856BEFE0044357D /* GalileoTracker-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GalileoTracker-Info.plist"; path = "CVFunhouse/GalileoTracker-Info.plist"; sourceTree = "<group>"; };
+		42DB067E1856BFA00044357D /* GalileoControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GalileoControl.framework; sourceTree = "<group>"; };
+		42DB06801856C0C80044357D /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		42DB06811856C0C80044357D /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		42DB06821856C0C80044357D /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		42E60DB316BB52E500F9712B /* Demos.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Demos.plist; sourceTree = "<group>"; };
 		CD7E937515BB5354004D709A /* CVFSephiaDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CVFSephiaDemo.h; path = CVFunhouse/CVFSephiaDemo.h; sourceTree = "<group>"; };
 		CD7E937615BB5354004D709A /* CVFSephiaDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CVFSephiaDemo.m; path = CVFunhouse/CVFSephiaDemo.m; sourceTree = "<group>"; };
@@ -134,11 +142,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42DB06831856C0C80044357D /* CoreBluetooth.framework in Frameworks */,
+				42DB06841856C0C80044357D /* ExternalAccessory.framework in Frameworks */,
+				42DB06851856C0C80044357D /* libxml2.dylib in Frameworks */,
 				42AA08581508314600B379F4 /* UIKit.framework in Frameworks */,
 				42AA085A1508314600B379F4 /* Foundation.framework in Frameworks */,
 				42AA085C1508314600B379F4 /* CoreGraphics.framework in Frameworks */,
 				4253708C1508383800BFE3C0 /* AVFoundation.framework in Frameworks */,
 				425370901508384900BFE3C0 /* CoreMedia.framework in Frameworks */,
+				42DB067F1856BFA00044357D /* GalileoControl.framework in Frameworks */,
 				425370911508384900BFE3C0 /* CoreVideo.framework in Frameworks */,
 				4250A8E91714C82200B880C3 /* GLKit.framework in Frameworks */,
 				42171D1215BA6C19008BEA68 /* opencv2.framework in Frameworks */,
@@ -180,6 +192,7 @@
 		4285252915BF6CDF00622EE8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				42DB067C1856BEFE0044357D /* GalileoTracker-Info.plist */,
 				421897E516BC879900AC716C /* CloseButton.png */,
 				428D978216A275450073329A /* CVFFaceDetect.html */,
 				428D978316A275450073329A /* CVFCannyDemo.html */,
@@ -228,6 +241,10 @@
 		42AA08561508314600B379F4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				42DB06801856C0C80044357D /* CoreBluetooth.framework */,
+				42DB06811856C0C80044357D /* ExternalAccessory.framework */,
+				42DB06821856C0C80044357D /* libxml2.dylib */,
+				42DB067E1856BFA00044357D /* GalileoControl.framework */,
 				42AA08571508314600B379F4 /* UIKit.framework */,
 				42AA08591508314600B379F4 /* Foundation.framework */,
 				42AA085B1508314600B379F4 /* CoreGraphics.framework */,
@@ -264,7 +281,6 @@
 		42AA085E1508314600B379F4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				42AA085F1508314600B379F4 /* CVFunhouse-Info.plist */,
 				42AA08601508314600B379F4 /* InfoPlist.strings */,
 				42AA08631508314600B379F4 /* main.m */,
 				42AA08651508314600B379F4 /* GalileoTracker-Prefix.pch */,
@@ -501,12 +517,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
+					/proj/GalileoTracker,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CVFunhouse/GalileoTracker-Prefix.pch";
 				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_FILE = "CVFunhouse/CVFunhouse-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/CVFunhouse/GalileoTracker-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = GalileoTracker;
 				WRAPPER_EXTENSION = app;
@@ -519,12 +536,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
+					/proj/GalileoTracker,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CVFunhouse/GalileoTracker-Prefix.pch";
 				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_FILE = "CVFunhouse/CVFunhouse-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/CVFunhouse/GalileoTracker-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = GalileoTracker;
 				WRAPPER_EXTENSION = app;

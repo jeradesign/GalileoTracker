@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnewline-eof"
 #import <GalileoControl/GalileoControl.h>
+#pragma clang diagnostic pop
 
 @interface CVFGalileoHandler : NSObject<GCGalileoDelegate, GCPositionControlDelegate>
 
