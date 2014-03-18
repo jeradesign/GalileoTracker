@@ -3,6 +3,10 @@
 <plist version="1.0">
 <array>
 	<array>
+		<string>Blob Follower</string>
+		<string>CVFBlobFollow</string>
+	</array>
+	<array>
 		<string>Face Detector</string>
 		<string>CVFFaceDetect</string>
 	</array>

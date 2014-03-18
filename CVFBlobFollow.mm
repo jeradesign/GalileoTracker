@@ -7,6 +7,7 @@
 //
 
 #import "CVFBlobFollow.h"
+#import "CVFGalileoHandler.h"
 
 #include "opencv2/imgproc/imgproc.hpp"
 
@@ -15,7 +16,22 @@ const int morph_size = 3;
 using namespace std;
 using namespace cv;
 
+@interface CVFBlobFollow() {
+    bool _inited;
+    CVFGalileoHandler *_galileo;
+}
+@end
+
 @implementation CVFBlobFollow
+
+-(instancetype)init
+{
+    self = [super init];
+    if (self != nil) {
+        _galileo = [[CVFGalileoHandler alloc] init];
+    }
+    return self;
+}
 
 -(void)processMat:(Mat)mat
 {
@@ -63,6 +79,15 @@ using namespace cv;
         int bottom = mat.rows;
         cv::line(mat, cv::Point(0,y), cv::Point(right,y), cv::Scalar(0, 0 , 255));
         cv::line(mat, cv::Point(x,0), cv::Point(x,bottom), cv::Scalar(0, 0 , 255));
+        int matX = mat.cols / 2;
+        int matY = mat.rows / 2;
+        
+        float deltaX = -(float)(x - matX) / mat.cols;
+        float deltaY = -(float)(y - matY) / mat.rows;
+        
+        NSLog(@"%f, %f", deltaX, deltaY);
+        [_galileo panBy:deltaX * 30];
+        [_galileo tiltBy:deltaY * 30];
     }
     [self matReady:mat];
 }
