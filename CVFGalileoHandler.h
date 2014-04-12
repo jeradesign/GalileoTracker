@@ -16,6 +16,6 @@
 
 - (void)panBy:(double) degrees;
 - (void)tiltBy:(double) degrees;
-- (void)rotateBy:(double) degrees axis:(BOOL)axis;
+- (void)rotateBy:(double) degrees axis:(NSUInteger)axis;
 
 @end

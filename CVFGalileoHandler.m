@@ -8,8 +8,17 @@
 
 #import "CVFGalileoHandler.h"
 
+@interface CVFGalileoHandler() {
+}
+
+@property (atomic) float panVelocity;
+@property (atomic) float tiltVelocity;
+
+@end
+
 @implementation CVFGalileoHandler {
     BOOL _connected;
+    NSTimer *_timer;
 }
 
 - (id)init
@@ -25,51 +34,47 @@
 #pragma mark - Galileo Support
 - (void)tick {
     [self log:@"tick"];
+    [self rotateBy:self.panVelocity axis:GCControlAxisPan];
+    [self rotateBy:self.tiltVelocity axis:GCControlAxisTilt];
 }
 
-- (void)rotateBy:(double) degrees axis:(BOOL)axis {
+- (void)rotateBy:(double) degrees axis:(NSUInteger)axis {
     if (!_connected) {
         return;
     }
-    GCPositionControl *positionControl = [[GCGalileo sharedGalileo] positionControlForAxis:
-                                          axis ? GCControlAxisTilt : GCControlAxisPan];
-    [positionControl setTargetPosition:positionControl.currentPosition + degrees completionBlock:
-     ^(BOOL wasCommandPreempted) {
-        if (wasCommandPreempted) {
-            [self log:@"incrementTargetPosition preempted"];
-        } else {
-            [self log:@"incrementTargetPosition completed"];
-        }
-    }
-                   waitUntilStationary:NO];
     
+    GCVelocityControl *positionControl = [[GCGalileo sharedGalileo] velocityControlForAxis:
+                                          axis ];
+    [positionControl setTargetVelocity:degrees];
 }
 
 - (void)panBy:(double) degrees {
-    [self rotateBy:degrees axis:FALSE];
+    self.panVelocity = degrees;
 }
 
 - (void)tiltBy:(double) degrees {
-    [self rotateBy:degrees axis:TRUE];
+    self.tiltVelocity = degrees;
 }
 
 - (void) galileoDidConnect {
     [self log:@"galileoDidConnect"];
     _connected = YES;
-    //    dispatch_async(dispatch_get_main_queue(), ^{
-    //        _timer = [NSTimer scheduledTimerWithTimeInterval:1.0
-    //                                                  target:self
-    //                                                selector:@selector(tick)
-    //                                                userInfo:nil
-    //                                                 repeats:YES];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        _timer = [NSTimer scheduledTimerWithTimeInterval:0.2
+                                                  target:self
+                                                selector:@selector(tick)
+                                                userInfo:nil
+                                                 repeats:YES];
     //        sprintf(_message, "_timer:%p", _timer);
-    //    });
+    });
 }
 
 - (void) galileoDidDisconnect {
     [self log:@"galileoDidDisconnect"];
     _connected = NO;
     [[GCGalileo sharedGalileo] waitForConnection];
+    [_timer invalidate];
+    _timer = nil;
 }
 
 - (void)controlDidReachTargetPosition {
