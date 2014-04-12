@@ -41,12 +41,12 @@
     }
 
     // Get the pixel buffer width and height
-    int width = CVPixelBufferGetWidth(imageBuffer);
-    int height = CVPixelBufferGetHeight(imageBuffer);
+    size_t width = CVPixelBufferGetWidth(imageBuffer);
+    size_t height = CVPixelBufferGetHeight(imageBuffer);
     
     //  char *savedImageData = 0;
     // create IplImage
-    cv::Mat mat(height, width, CV_8UC4, baseAddress);
+    cv::Mat mat((int)height, (int)width, CV_8UC4, baseAddress);
     
 //    IplImage *flipCopy = cvCloneImage(iplimage);
 //    cvFlip(flipCopy, flipCopy, 0);
