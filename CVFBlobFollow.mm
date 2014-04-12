@@ -12,6 +12,8 @@
 #include "opencv2/imgproc/imgproc.hpp"
 
 const int morph_size = 3;
+const float minDeltaX = 0.05;
+const float minDeltaY = 0.05;
 
 using namespace std;
 using namespace cv;
@@ -85,10 +87,21 @@ using namespace cv;
         float deltaX = -(float)(x - matX) / mat.cols;
         float deltaY = -(float)(y - matY) / mat.rows;
         
+        if (fabs(deltaX) < minDeltaX) {
+            deltaX = 0;
+        }
+        if (fabs(deltaY) < minDeltaY) {
+            deltaY = 0;
+        }
+        
         NSLog(@"%f, %f", deltaX, deltaY);
-        [_galileo panBy:deltaX * 30];
-        [_galileo tiltBy:deltaY * 30];
+        [_galileo panBy:deltaX * 180];
+        [_galileo tiltBy:deltaY * 180];
+    } else {
+        [_galileo panBy:0];
+        [_galileo tiltBy:0];
     }
+    
     [self matReady:mat];
 }
 
